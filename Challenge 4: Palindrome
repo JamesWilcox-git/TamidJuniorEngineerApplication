@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+// using C++
+
+bool isPalindrome(string word){
+    string temp = "";
+    for (int i = word.size()-1; i >= 0;i--) {temp += word[i];}
+    if (word == temp) {return true;}
+    return false;
+};
+
+int main() {
+    string test = "tacocat";
+    cout << isPalindrome(test);
+}
