@@ -1,0 +1,34 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+
+// added a print line function so I won't have to repeat code at start and finish of box
+void printLine(int size, char packaging) {
+    for (int i = 0; i < size+4; i++) {cout << packaging;}
+    cout << endl;
+}
+
+void listBoxer(vector<string> words, char packaging){
+    int biggestWordSize = 0;
+    for(int i = 0; i < words.size(); i++) {
+        if(words[i].size() > biggestWordSize) {biggestWordSize = words[i].size();}
+    };
+    // print top of box
+    printLine(biggestWordSize,packaging);
+    // print the words
+    for(int j = 0; j < words.size(); j++) {
+        cout << packaging << " " << words[j];
+        for(int k = 0; k < (biggestWordSize-words[j].size()); k++) {cout << " ";}
+        cout << " " << packaging << endl;
+    }
+    // print bottom of box
+    printLine(biggestWordSize,packaging);
+}
+
+int main() {
+    // added "packaging" so the box material can be changed
+    char packaging = '*';
+    vector<string> wordList = {"I","want","to","join","Tamid"};
+    listBoxer(wordList,packaging);
+}
